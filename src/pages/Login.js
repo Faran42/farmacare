@@ -1,17 +1,23 @@
 import React from 'react';
-import { ImageBackground, Image, View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Alert } from 'react-native';
-import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode'
+import { ImageBackground, Image, View, Text, SafeAreaView, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
+
 
 import CustomButton from '../components/CustomButton'
 
 export default function Login() {
+  const navigation = useNavigation();
   return (
     <>
+      <StatusBar style="light" backgroundColor="transparent" translucent={true} />
       <ImageBackground source={require('../assets/fundo1.png')} style={styles.customBackground} resizeMode="stretch">
 
         <Text style={styles.title}>Farmacare</Text>
 
-        <CustomButton style={styles.loginButton} />
+        <CustomButton 
+          onPress={() => navigation.navigate('entrar')} 
+          customButtonValue={'Login'}
+        />
 
         <TouchableOpacity>
           <Text style={styles.signIn}>Cadastrar</Text>
@@ -27,11 +33,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  
+
   customBackground: {
-    flex: 1,
-    width: '100%',
-    
+    flex: 1,    
     alignItems: 'center',
   },
 
@@ -42,10 +46,6 @@ const styles = StyleSheet.create({
     marginTop: "20%",
     textAlign: 'center',
     marginBottom: "35%"
-  },
-
-  loginButton: {    
-    marginTop: 200
   },
 
   signIn: {
