@@ -1,9 +1,14 @@
 import React from 'react';
-import { View, SafeAreaView, ImageBackground, StyleSheet, StatusBar, Text, InputText, TextInput } from 'react-native';
+import { View, SafeAreaView, ImageBackground, StyleSheet, StatusBar, Text, InputText, TextInput, } from 'react-native';
+import { } from 'react-native-elements'
 import CustomButton from '../components/CustomButton'
-import { Feather } from '@expo/vector-icons'
+import { Feather, Ionicons } from '@expo/vector-icons'
+import { CheckBox } from 'react-native-elements'
 
 export default function Entrar() {
+
+  const [checkedState, setCheckedState] = React.useState(false)
+
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
@@ -12,25 +17,37 @@ export default function Entrar() {
         style={styles.imageContainer}
         resizeMode="stretch"
       >
-        
-          <Text style={styles.title}>Farmacare</Text>
 
-          <Text style={styles.inputLabel}>Medicamento</Text>
-          <TextInput style={styles.input}></TextInput>
+        <Text style={styles.title}>Farmacare</Text>
 
-          <Text style={styles.inputLabel}>Marca</Text>
-          <TextInput style={styles.input}></TextInput>
+        <Text style={styles.inputLabel}>Medicamento</Text>
+        <TextInput style={styles.input}></TextInput>
 
-          <Text style={styles.inputLabel}>Endereço</Text>
-          <TextInput style={[styles.input, { marginBottom: '20%'}]}></TextInput>
-          
+        <Text style={styles.inputLabel}>Marca</Text>
+        <View style={styles.marca}>
+          <TextInput style={styles.input} >
+          </TextInput>
+          <Ionicons name="caret-forward-outline" color="#1BD1F1" size={20} style={{ marginLeft: -95, marginRight: 80 }} />
+        </View>
 
-          <CustomButton 
-            style={{ elevation: 5}}
-            customButtonValue={['Buscar  ',
-            <Feather name="search" size={24}/>
+
+        <Text style={styles.inputLabel}>Endereço</Text>
+        <TextInput style={styles.input} />
+
+        <Text style={styles.inputLabel}>Genérico?</Text>
+
+        <CheckBox
+          center
+          checked={checkedState}
+          onPress={() => setCheckedState(!checkedState)}
+        />
+
+        <CustomButton
+          style={{ elevation: 5 }}
+          customButtonValue={['Buscar  ',
+            <Feather name="search" size={24} />
           ]}
-          />
+        />
       </ImageBackground>
     </>
   );
@@ -48,9 +65,9 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'NothingYouCouldDo_400Regular',
     fontSize: 36,
-    marginTop: "20%",
+    marginTop: "15%",
     textAlign: 'center',
-    marginBottom: "15%"
+    marginBottom: "10%"
   },
 
   inputLabel: {
@@ -59,13 +76,17 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
 
-  input: {    
+  input: {
     alignContent: 'center',
-    marginHorizontal: '20%',    
+    marginHorizontal: '20%',
     borderBottomWidth: 1,
     borderBottomColor: '#37A8E8',
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 15,
     width: 200
+  },
+
+  marca: {
+    flexDirection: 'row'
   }
 })
