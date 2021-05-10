@@ -4,8 +4,11 @@ import { } from 'react-native-elements'
 import CustomButton from '../components/CustomButton'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import { CheckBox } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Entrar() {
+
+  const navigation = useNavigation();
 
   const [checkedState, setCheckedState] = React.useState(false)
 
@@ -45,8 +48,9 @@ export default function Entrar() {
         <CustomButton
           style={{ elevation: 5 }}
           customButtonValue={['Buscar  ',
-            <Feather name="search" size={24} />
+            <Feather key={Math.random} name="search" size={24} />
           ]}
+          onPress={() => navigation.navigate('resultado')}
         />
       </ImageBackground>
     </>

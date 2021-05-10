@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './pages/Login';
 import Entrar from './pages/Entrar';
 import Busca from './pages/Busca';
+import Resultado from './pages/Resultado';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ function Routes() {
         <Stack.Screen
           name="busca"
           component={Busca}         
+          
+        />        
+        <Stack.Screen
+          name="resultado"
+          component={Resultado}         
           
         />        
       </Stack.Navigator>
