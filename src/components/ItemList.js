@@ -5,11 +5,11 @@ import { Ionicons } from '@expo/vector-icons'
 export default function ItemList() {
   return (
     <View style={styles.container} >
-      <View name='barras'>
-
-      </View>
       <View name='image'>
-        <Image source={require('../assets/remedios/remedio1.png')} />
+        <Image
+          source={require('../assets/remedios/remedio1.png')}
+          style={{ width: 90, height: 140 }}
+        />
       </View>
 
       <View name='info'>
@@ -20,18 +20,18 @@ export default function ItemList() {
           Medley
         </Text>
         <Text name="deliveryTime" style={styles.deliveryTime}>
-          2 dias para entrega
+          2000 dias para entarega
         </Text>
-        <View style={{ flexDirection: 'row', marginTop: '23%' }}>
+        <View style={{ flexDirection: 'row', marginTop: '5%' }}>
           <Text name="details" style={styles.details}>
             Detalhes
           </Text>
-          <Ionicons name='chevron-forward' size={28} color='#1BD1F1' />
+          <Ionicons name='chevron-forward' size={24} color='#1BD1F1' />
         </View>
       </View>
 
-      <View name='icons'>
-        <View style={{ flexDirection: 'row', marginLeft: '10%' }}>
+      <View name='icons' style={{ marginLeft: -50  }}>
+        <View style={{ flexDirection: 'row' }}>
           <Ionicons name='checkbox-outline' size={28} color='#1B9F18' />
           <Text> Genérico</Text>
         </View>
@@ -39,9 +39,10 @@ export default function ItemList() {
         <Ionicons
           name='cart-outline'
           size={34} color='#fff'
-          style={{ marginLeft: '40%', marginTop: '35%', backgroundColor: '#1BD1F1', width: '25%' }}
-          
+          style={styles.scrollCartIcon}
         />
+
+
       </View>
     </View>
   );
@@ -57,7 +58,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#cccccc',
     borderBottomWidth: 3,
     borderRadius: 5,
-    padding: 5
+    padding: 5,
+    justifyContent: 'space-around'
   },
 
   price: {
@@ -71,12 +73,19 @@ const styles = StyleSheet.create({
 
   deliveryTime: {
     fontWeight: '100',
-    fontSize: 10
+    fontSize: 14,
+    width: '60%'
   },
 
   details: {
     fontSize: 18,
     color: '#1BD1F1',
+  },
 
+  scrollCartIcon: {
+    backgroundColor: '#1BD1F1',
+    width: 38,
+    marginTop: 50,
+    marginLeft: 50
   }
 })

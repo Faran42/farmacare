@@ -16,6 +16,10 @@ function Routes() {
         headerMode="none"
       >
         <Stack.Screen
+          name="resultado"
+          component={Resultado}               
+        />        
+        <Stack.Screen
           name="login"
           component={Login}         
           
@@ -28,11 +32,6 @@ function Routes() {
         <Stack.Screen
           name="busca"
           component={Busca}         
-          
-        />        
-        <Stack.Screen
-          name="resultado"
-          component={Resultado}         
           
         />        
       </Stack.Navigator>
