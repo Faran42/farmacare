@@ -2,6 +2,8 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import styles from './styles'
+
 export default function CustomButton(props) {
   return (
     <View style={styles.buttonContainer}>
@@ -11,27 +13,5 @@ export default function CustomButton(props) {
         </LinearGradient>
       </TouchableOpacity>
     </View>
-
-
   );
 }
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    width: "50%"
-  },
-
-  button: {
-    backgroundColor: "#1BD1F1",
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  textButton: {
-    color: '#FFFEFE',
-    fontSize: 28,
-
-    paddingVertical: 4
-  }
-})

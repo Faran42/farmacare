@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Entrar from './pages/Entrar';
 import Busca from './pages/Busca';
 import Resultado from './pages/Resultado';
+import Add from './pages/Add';
+import Remedio from './pages/Remedio';
 
 const Stack = createStackNavigator();
 
@@ -16,8 +18,16 @@ function Routes() {
         headerMode="none"
       >
         <Stack.Screen
+          name="remedio"
+          component={Remedio}               
+        />        
+        <Stack.Screen
           name="resultado"
           component={Resultado}               
+        />        
+        <Stack.Screen
+          name="add"
+          component={Add}               
         />        
         <Stack.Screen
           name="login"
